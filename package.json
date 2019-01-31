@@ -1,0 +1,24 @@
+{
+  "name": "next-lambda",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ripeworks/next-lambda.git"
+  },
+  "keywords": [
+    "next",
+    "lambda",
+    "serverless"
+  ],
+  "author": "Mike Kruk <mike@ripeworks.com> (http://ripeworks.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ripeworks/next-lambda/issues"
+  },
+  "homepage": "https://github.com/ripeworks/next-lambda#readme",
+  "dependencies": {
+    "find-my-way": "^1.18.0",
+    "serve-handler": "^5.0.7"
+  }
+}
