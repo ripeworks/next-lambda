@@ -1,6 +1,8 @@
 const { Server } = require("http");
 const serve = require("serve-handler");
-const router = require("find-my-way")();
+const router = require("find-my-way")({
+  ignoreTrailingSlash: true
+});
 
 const { Bridge } = require("./bridge");
 
