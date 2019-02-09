@@ -16,6 +16,8 @@ Server.prototype.listen = function listen(...args) {
   saveListen.apply(this, args);
 };
 
+const getRoute = route => typeof route === "string" ? {page: route} : route
+
 module.exports = ({routes = {}}) => {
   try {
     if (!process.env.NODE_ENV) {
@@ -28,12 +30,10 @@ module.exports = ({routes = {}}) => {
     });
 
     Object.keys(routes).map(path => {
-      const route = routes[path];
+      const { page: route, query = {}} = getRoute(routes[path]);
       router.on("GET", path, (req, res, params) => {
-        const page = require(`./.next/serverless/pages${
-          typeof route === "string" ? route : route.page
-        }`);
-        const qs = Object.keys(params)
+        const page = require(`./.next/serverless/pages${route}`);
+        const qs = Object.keys({...params, ...query})
           .map(key => `${key}=${params[key]}`)
           .join("&");
         const sep = req.url.indexOf("?") > -1 ? "&" : "?";
