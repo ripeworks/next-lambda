@@ -8,7 +8,7 @@ Set `target: "serverless"` and deploy.
 Usage:
 
 ```js
-const nextLambda = require("net-lambda");
+const nextLambda = require("next-lambda");
 
 module.exports = nextLambda({
   routes: {
